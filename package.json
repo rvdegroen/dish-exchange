@@ -1,0 +1,36 @@
+{
+  "name": "dish_exchange",
+  "version": "1.0.0",
+  "description": "feature to add a dish in your menu in dish exchange",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvdegroen/project.git"
+  },
+  "author": "Roshnie de Groen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rvdegroen/project/issues"
+  },
+  "homepage": "https://github.com/rvdegroen/project#readme",
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.6.0",
+    "mongoose": "^6.3.3"
+  }
+}
