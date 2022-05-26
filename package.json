@@ -1,0 +1,38 @@
+{
+  "name": "dish-exchange",
+  "version": "1.0.0",
+  "description": "This is a feature to add dishes, made for the dish-exchange concept.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvdegroen/project.git"
+  },
+  "keywords": [
+    "feature",
+    "school"
+  ],
+  "author": "Roshnie de Groen",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/rvdegroen/project/issues"
+  },
+  "homepage": "https://github.com/rvdegroen/project#readme",
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  }
+}
