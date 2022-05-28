@@ -1,6 +1,6 @@
-# Guide
+# Process
 
-This is a guide for myself to list all the things I have done, so I won't forget
+This is a guide for myself to document my process, so I won't forget and won't get confused
 
 1. `npm init`
 2. `git init`
@@ -36,4 +36,22 @@ This is a guide for myself to list all the things I have done, so I won't forget
 26. install `dotenv` with: `npm install dotenv --save`
 27. require `dotenv` in `server.js` with: `require('dotenv').config()`
 
-28.
+28. installed `ejs language support` extension for my vscode, otherwise the colors won't be blue and it confuses me
+
+29. added `partials` and `pages`
+
+30. in `mongodb` I made a new project called `dish-exchange` and created a shared (free) database
+31. i created a user with a password so I can read and write into my database
+32. I first my own IP then in `network access` I deleted my ip and clicked on `add IP adress` followed by `allow access from anywhere`
+33. I went to `database` > `browse collections` then I `created a database` with the name `dish-exchange`
+34. I made a collection called `dishes`
+35. I clcicked on `insert document` and made 2 example dishes or `documents` in my dishes database
+36. started to read the mongodb documentation with node driver on atlas: `https://www.mongodb.com/docs/drivers/node/current/`
+
+37. installed mongodb with: `npm install mongodb --save`
+38. put in `server.js`: `const MongoClient = require("mongodb");`
+39. googled on how to use a `dotenv` for my link with a password for my mongodb_URI: `https://northflank.com/guides/connecting-to-a-mongo-db-database-using-node-js`
+40. in my mongodb `database` I clicked on `connect` > `connect with application`
+41. in my `server.js` I added `const uri = process.env.mongo_uri;` instead of my password
+42. I copied the link and put in my `password` of my user, I changed `cluster0` to `cluster1` (like in mongodb) and put this as a variable in my `dotenv` file
+43. I also made a `.envSample` file for later
