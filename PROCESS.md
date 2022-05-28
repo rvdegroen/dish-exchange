@@ -2,6 +2,8 @@
 
 This is a guide for myself to document my process, so I won't forget and won't get confused
 
+## Start & Configure Linter & Prettier
+
 1. `npm init`
 2. `git init`
 3. install extension for vscode: `prettier` & `eslint`
@@ -10,9 +12,13 @@ This is a guide for myself to document my process, so I won't forget and won't g
 6. google how to configure prettier with eslint airbnb: `https://gist.github.com/bradtraversy/aab26d1e8983d9f8d79be1a9ca894ab4`
 7. install neccesities for eslint and prettier: `npm i -D eslint prettier eslint-plugin-prettier eslint-config-prettier`
 
+## Files Created
+
 8. create a `.prettierrc` file for prettier rules
 9. create a `.gitignore` with template from: `https://github.com/github/gitignore/blob/main/Node.gitignore`
 10. create a `.env` file for future passwords and keys
+
+## Config Prettier
 
 11. turn on `format on save` in vscode
 12. choose `prettier` as default formatter in vscode
@@ -48,6 +54,8 @@ This is a guide for myself to document my process, so I won't forget and won't g
 35. I clcicked on `insert document` and made 2 example dishes or `documents` in my dishes database
 36. started to read the mongodb documentation with node driver on atlas: `https://www.mongodb.com/docs/drivers/node/current/`
 
+## MongoDB
+
 37. installed mongodb with: `npm install mongodb --save`
 38. put in `server.js`: `const MongoClient = require("mongodb");`
 39. googled on how to use a `dotenv` for my link with a password for my mongodb_URI: `https://northflank.com/guides/connecting-to-a-mongo-db-database-using-node-js`
@@ -55,3 +63,39 @@ This is a guide for myself to document my process, so I won't forget and won't g
 41. in my `server.js` I added `const uri = process.env.mongo_uri;` instead of my password
 42. I copied the link and put in my `password` of my user, I changed `cluster0` to `cluster1` (like in mongodb) and put this as a variable in my `dotenv` file
 43. I also made a `.envSample` file for later
+
+## Deployment
+
+44. I googled "Deploying with Git" and found: `https://devcenter.heroku.com/articles/git`
+45. One of the steps is to install Heroku CLI (linux ubuntu): `https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli`
+46. I install Heroku CLI with: `curl https://cli-assets.heroku.com/install-ubuntu.sh | sh`
+47. installed heroku with: `npm install heroku --save` or `npm install -g heroku --save` followed by `npm audit fix`
+48. create heroku remote for an existing app with `heroku git:remote -a dishexchange`
+
+## Coding
+
+. I looked up on youtube "how to parse data with mongodb node js" and found: `https://www.youtube.com/watch?v=vcJwAYHaS-k`
+
+# Code
+
+`try` = defines the code block to run (to try)
+
+`catch` defines a code block to handle any error
+
+`finally` or `catch` = defines a code block to run regardless of the result
+
+`throw` defines a custom error
+
+source = https://www.w3schools.com/jsref/jsref_try_catch.asp
+
+`heroku --version` = check heroku version
+
+`heroku login` = login with heroku on the browser
+
+`heroku create -a example-app` = to make a new heroku remote and an empty heroku git repo
+
+`git remote -v` = check heroku remote
+
+`heroku git:remote -a example-app` = to make a heroku remote for the existing example-app
+
+source: https://devcenter.heroku.com/articles/git
