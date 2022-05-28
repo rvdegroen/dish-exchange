@@ -74,8 +74,8 @@ This is a guide for myself to document my process, so I won't forget and won't g
 49. terminal asked to press any button and to click on the link to `login` into heroku in my browser and I checked my remotes with `git remote -v`
 50. commit and push code with: `git push heroku main`
 51. went to the heroku website & to my app into: `settings` and then `reveal config vars`. I put in there my mongodb variable with password that's in my `.env file`.
-52. because heroky wouldn't work, I stumbled upong making a `procfile` with the code: `web: node server.js`, so heroku would know what to start
-53. heroku got an error with code H20, so I googled and found: `https://stackoverflow.com/questions/18679690/heroku-nodejs-app-with-r10-h10-and-h20-errors`
+52. because I got the `error H10` wouldn't work, I stumbled upong making a `procfile` with the code: `web: node server.js`, so heroku would know what to start
+53. heroku got an `error H20`, so I googled and found: `https://stackoverflow.com/questions/18679690/heroku-nodejs-app-with-r10-h10-and-h20-errors`
 54. instead of having: `app.listen(3000);` I changed it for heroku to: `app.listen(process.env.PORT || 3000)`
 
 ## Coding
