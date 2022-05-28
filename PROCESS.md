@@ -70,13 +70,18 @@ This is a guide for myself to document my process, so I won't forget and won't g
 45. One of the steps is to install Heroku CLI (linux ubuntu): `https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli`
 46. I install Heroku CLI with: `curl https://cli-assets.heroku.com/install-ubuntu.sh | sh`
 47. installed heroku with: `npm install heroku --save` or `npm install -g heroku --save` followed by `npm audit fix`
-48. create heroku remote for an existing app with `heroku git:remote -a dishexchange`
+48. create heroku remote for a new app with `heroku create -a dishexchange`
+49. terminal asked to press any button and to click on the link to `login` into heroku in my browser and I checked my remotes with `git remote -v`
+50. commit and push code with: `git push heroku main`
+51. went to the heroku website & to my app into: `settings` and then `reveal config vars`. I put in there my mongodb variable with password that's in my `.env file`.
 
 ## Coding
 
 . I looked up on youtube "how to parse data with mongodb node js" and found: `https://www.youtube.com/watch?v=vcJwAYHaS-k`
 
 # Code
+
+## General
 
 `try` = defines the code block to run (to try)
 
@@ -88,14 +93,20 @@ This is a guide for myself to document my process, so I won't forget and won't g
 
 source = https://www.w3schools.com/jsref/jsref_try_catch.asp
 
+## Heroku
+
 `heroku --version` = check heroku version
 
 `heroku login` = login with heroku on the browser
 
 `heroku create -a example-app` = to make a new heroku remote and an empty heroku git repo
 
-`git remote -v` = check heroku remote
+`git remote -v` = check remotes
 
 `heroku git:remote -a example-app` = to make a heroku remote for the existing example-app
+
+`git remote rename heroku heroku-staging` = rename a remote (this case heroku to heroku-staging)
+
+`git push heroku main` = to deploy code after commiting
 
 source: https://devcenter.heroku.com/articles/git
