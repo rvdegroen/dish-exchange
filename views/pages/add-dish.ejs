@@ -5,7 +5,267 @@
   </head>
 
   <body>
-    <h1>22</h1>
-    <!--for loop for oneofthedishes-->
+    <h1><%-include('../partials/back') %> Add a Dish</h1>
+    <!--main feature: to add the dish into the database of mongoDB-->
+    <!--for the action, I want to send you to the dish-details.ejs page + the id of the dish you just created-->
+    <form action="" method="post">
+      <fieldset>
+        <!--for images-->
+      </fieldset>
+
+      <fieldset>
+        <legend>Name of the dish</legend>
+        <input type="text" id="dishName" name="dishName" required />
+      </fieldset>
+
+      <fieldset>
+        <legend>Dish quality</legend>
+        <p class="subtext">How good are you at making this dish?</p>
+
+        <input
+          type="radio"
+          id="dishQuality1"
+          value="1"
+          name="dishQuality"
+          required
+        />
+        <label for="dishQuality1">1</label>
+
+        <input
+          type="radio"
+          id="dishQuality2"
+          value="2"
+          name="dishQuality"
+          required
+        />
+        <label for="dishQuality2">2</label>
+
+        <input
+          type="radio"
+          id="dishQuality3"
+          value="3"
+          name="dishQuality"
+          required
+        />
+        <label for="dishQuality3">3</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Ingredients</legend>
+        <p class="subtext">Measurements are not needed</p>
+        <!--if there is javascript, add a button to add an ingredient and add a textfield -> this will create an array of ingredients-->
+        <!--if there is no javascript, add a textfield and a p, stating you need to distinguish ingredients with a comma -> this will create an array of ingredients-->
+        <input type="text" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Tags</legend>
+        <p class="subtext">Tags are used for filtering preferences</p>
+        <!--if there is js, then add dropdowns with cuisine, dishtype, spicelevel, diet & allergies-->
+        <!--if there is no js, then dont have dropwdowns and just input field-->
+        <p class="heading">Cuisine</p>
+
+        <input type="checkbox" id="european" value="european" name="tags" />
+        <label for="european">European</label>
+
+        <input
+          type="checkbox"
+          id="middle-easter"
+          value="middle-easter"
+          name="tags"
+        />
+        <label for="middle-easter">Middle Eastern</label>
+
+        <input type="checkbox" id="african" value="african" name="tags" />
+        <label for="african">African</label>
+
+        <input type="checkbox" id="asian" value="asian" name="tags" />
+        <label for="asian">Asian</label>
+
+        <input
+          type="checkbox"
+          id="north-american"
+          value="north-american"
+          name="tags"
+        />
+        <label for="north-american">North American</label>
+
+        <input
+          type="checkbox"
+          id="south-american"
+          value="south-american"
+          name="tags"
+        />
+        <label for="south-american">South American</label>
+
+        <input
+          type="checkbox"
+          id="other-cuisines"
+          value="other-cuisines"
+          name="tags"
+        />
+        <label for="other-cuisines">Other cuisines</label>
+
+        <p class="heading">Dish type</p>
+
+        <input type="checkbox" id="meat" value="meat" name="tags" />
+        <label for="meat">Meat</label>
+
+        <input type="checkbox" id="fish" value="fish" name="tags" />
+        <label for="fish">Fish</label>
+
+        <input
+          type="checkbox"
+          id="shellfish-and-seafood"
+          value="shellfish-and-seafood"
+          name="tags"
+        />
+        <label for="shellfish-and-seafood">Shellfish and seafood</label>
+
+        <input
+          type="checkbox"
+          id="vegetables-and-sides"
+          value="vegetables-and-sides"
+          name="tags"
+        />
+        <label for="vegetables-and-sides">Vegetables and sides</label>
+
+        <input
+          type="checkbox"
+          id="pasta-and-noodles"
+          value="pasta-and-noodles"
+          name="tags"
+        />
+        <label for="pasta-and-noodles">Pasta and noodles</label>
+
+        <input type="checkbox" id="pizza" value="pizza" name="tags" />
+        <label for="pizza">Pizza</label>
+
+        <input type="checkbox" id="burgers" value="burgers" name="tags" />
+        <label for="burgers">Burgers</label>
+
+        <input
+          type="checkbox"
+          id="stews-and-curries"
+          value="stews-and-curries"
+          name="tags"
+        />
+        <label for="stews-and-curries">Stews and curries</label>
+
+        <input
+          type="checkbox"
+          id="sushi-and-poke"
+          value="sushi-and-poke"
+          name="tags"
+        />
+        <label for="sushi-and-poke">Sushi and poke</label>
+
+        <input
+          type="checkbox"
+          id="kebab-and-skewers"
+          value="kebab-and-skewers"
+          name="tags"
+        />
+        <label for="kebab-and-skewers">Kebab and skewers</label>
+
+        <input
+          type="checkbox"
+          id="soup-and-ramen"
+          value="soup-and-ramen"
+          name="tags"
+        />
+        <label for="soup-and-ramen">Soup and ramen</label>
+
+        <input type="checkbox" id="salads" value="salads" name="tags" />
+        <label for="salads">Salads</label>
+
+        <input
+          type="checkbox"
+          id="sandwiches-wraps-and-bread"
+          value="sandwiches-wraps-and-bread"
+          name="tags"
+        />
+        <label for="sandwiches-wraps-and-bread"
+          >Sandwiches, wraps and bread</label
+        >
+
+        <input
+          type="checkbox"
+          id="breakfast-brunch-and-eggs"
+          value="breakfast-brunch-and-eggs"
+          name="tags"
+        />
+        <label for="breakfast-brunch-and-eggs"
+          >Breakfast, brunch and eggs</label
+        >
+
+        <input
+          type="checkbox"
+          id="small-plates-and-sharing"
+          value="small-plates-and-sharing"
+          name="tags"
+        />
+        <label for="small-plates-and-sharing">Small plates and sharing</label>
+
+        <input
+          type="checkbox"
+          id="desserts-and-pastries"
+          value="desserts-and-pastries"
+          name="tags"
+        />
+        <label for="desserts-and-pastries">Desserts and pastries</label>
+
+        <p class="heading">Spice level</p>
+
+        <input type="checkbox" id="not-spicy" value="not-spicy" name="tags" />
+        <label for="not-spicy">Not spicy</label>
+
+        <input type="checkbox" id="mild" value="mild" name="tags" />
+        <label for="mild">Mild</label>
+
+        <input type="checkbox" id="medium" value="medium" name="tags" />
+        <label for="medium">Medium</label>
+
+        <input type="checkbox" id="spicy" value="spicy" name="tags" />
+        <label for="spicy">Spicy</label>
+
+        <input type="checkbox" id="extra-picy" value="extra-picy" name="tags" />
+        <label for="extra-picy">Extra spicy</label>
+
+        <p class="heading">Diet & allergies</p>
+
+        <input type="checkbox" id="vegan" value="vegan" name="tags" />
+        <label for="vegan">Vegan</label>
+
+        <input type="checkbox" id="vegetarian" value="vegetarian" name="tags" />
+        <label for="vegetarian">Vegetarian</label>
+
+        <input
+          type="checkbox"
+          id="gluten-free"
+          value="gluten-free"
+          name="tags"
+        />
+        <label for="gluten-free">Gluten-free</label>
+
+        <input
+          type="checkbox"
+          id="lactose-free"
+          value="lactose-free"
+          name="tags"
+        />
+        <label for="lactose-free">Lactose-free</label>
+      </fieldset>
+
+      <input type="submit" value="Submit" />
+    </form>
   </body>
 </html>
+
+<!--I have a few values for my form: 
+  dishName
+  dishImage
+  dishQuality
+  dishIngredients
+  dishTags
+-->

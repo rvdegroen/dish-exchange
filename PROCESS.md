@@ -75,10 +75,13 @@ This is a guide for myself to document my process, so I won't forget and won't g
 50. commit and push code with: `git push heroku main`
 51. went to the heroku website & to my app into: `settings` and then `reveal config vars`. I put in there my mongodb variable with password that's in my `.env file`.
 52. because I got the `error H10` wouldn't work, I stumbled upong making a `procfile` with the code: `web: node server.js`, so heroku would know what to start
-53. heroku got an `error H20`, so I googled and found: `https://stackoverflow.com/questions/18679690/heroku-nodejs-app-with-r10-h10-and-h20-errors`
-54. instead of having: `app.listen(3000);` I changed it for heroku to: `app.listen(process.env.PORT || 3000)`
+53. I googled to know more about procfile: `https://dev.to/lawrence_eagles/causes-of-heroku-h10-app-crashed-error-and-how-to-solve-them-3jnl`
+54. heroku got an `error H20`, so I googled and found: `https://stackoverflow.com/questions/18679690/heroku-nodejs-app-with-r10-h10-and-h20-errors`
+55. instead of having: `app.listen(3000);` I changed it for heroku to: `app.listen(process.env.PORT || 3000)`
 
-## Coding
+## Front-end
+
+56. I started working on my `pages` so that the information I need is in there.
 
 . I looked up on youtube "how to parse data with mongodb node js" and found: `https://www.youtube.com/watch?v=vcJwAYHaS-k`
 
@@ -113,3 +116,36 @@ source = https://www.w3schools.com/jsref/jsref_try_catch.asp
 `git push heroku main` = to deploy code after commiting
 
 source: https://devcenter.heroku.com/articles/git
+
+## EJS
+
+`<% %>` = to run code
+
+`<%= %>` = replace code with text
+
+`<%- %>` = to include parials
+
+source: https://ejs.co/#docs
+
+# Variables
+
+## in dishes.ejs
+
+1. `numberOfDishes` = number of total documents in mongodb
+
+## in add-dish.ejs
+
+## in dish-details.ejs
+
+1. `dishIngredients` = value: ingredient, array of ingredients
+2. `dishName` = value: name of the dish in `dish.ejs` & `dish-details.ejs`
+3. `dishImage` = value: image in /images in `dish.ejs`
+4. `dishTags` = value: tags, which is an array in `dish.ejs`
+5. `dishQuality` = value: quality, which is a number in `dish.ejs`
+
+## in partials
+
+1. `dishName` = value: name of the dish in `dish.ejs` & `dish-details.ejs`
+2. `dishImage` = value: image in /images in `dish.ejs`
+3. `dishTags` = value: tags, which is an array in `dish.ejs`
+4. `dishQuality` = value: quality, which is a number in `dish.ejs`

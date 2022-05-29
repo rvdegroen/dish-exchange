@@ -5,7 +5,15 @@
   </head>
 
   <body>
-    <h1>22</h1>
-    <!--for loop for oneofthedishes-->
+    <h1><%-include('../partials/back')%><%=dishName%></h1>
+    <img src="<%=dishImage%>" alt="" />
+    <h2><%=dishName%></h2>
+    <p class="dishQuality">Quality: <%=dishQuality%></p>
+    <h3>Ingredients</h3>
+    <!--first try with a p, but the array needs to be put into an ul > (times the dishIngredient) li -->
+    <p><%=dishIngredients%></p>
+    <h3>Tags</h3>
+    <!--first try with a p, but the array needs to be put into an ul > (times the dishIngredient) li -->
+    <p><%=dishTags%></p>
   </body>
 </html>

@@ -5,7 +5,11 @@
   </head>
 
   <body>
-    <h1>22</h1>
+    <h1>Your Menu</h1>
+    <h2><%= numberOfDishes %></h2>
+    <!--I want to include the partial dish, x (numderOfDishes) times into this page-->
+    <%-include('../partials/dish') %>
     <!--for loop for oneofthedishes-->
+    <a href="/views/pages/add-dish.ejs">+</a>
   </body>
 </html>
