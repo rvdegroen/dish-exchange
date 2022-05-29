@@ -2,6 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const { MongoClient } = require("mongodb");
+// const bodyParser = require("body-parser");
 
 // VARIABLES
 const app = express();
@@ -38,7 +39,18 @@ app.use(express.static("static"));
 // ROUTES
 // homepage
 app.get("/", (req, res) => {
-  res.render("pages/dishes");
+  res.render("pages/dishes", {
+    numberOfDishes: 22,
+    dishName: "whatever",
+    dishImage: "#",
+    dishTags: ["asian", "thai"],
+    dishIngredients: ["milk", "corn"],
+    dishQuality: 3,
+  });
+});
+
+app.get("/add-dish", (req, res) => {
+  res.render("pages/add-dish");
 });
 
 // 404 error pages

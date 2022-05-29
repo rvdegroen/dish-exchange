@@ -79,11 +79,19 @@ This is a guide for myself to document my process, so I won't forget and won't g
 54. heroku got an `error H20`, so I googled and found: `https://stackoverflow.com/questions/18679690/heroku-nodejs-app-with-r10-h10-and-h20-errors`
 55. instead of having: `app.listen(3000);` I changed it for heroku to: `app.listen(process.env.PORT || 3000)`
 
+56. I started working on my `pages` HTML/EJS a bit, just to have the basics in there (without the web API of some sort)
+
+57. installed `body-parser` with `npm install body-parser --save`
+58. added `const= bodyParser = require('body-parser')` in `server.js`
+
+## adding stuff
+
+59. googled "how to link variables from `server.js` to `ejs`" and found: `https://www.geeksforgeeks.org/how-to-make-js-variables-accessible-to-ejs-files/`
+60. hard code variables I have in my `.ejs` into `server.js` so I can open it from localhost:3000
+
 ## Front-end
 
 56. I started working on my `pages` so that the information I need is in there.
-
-. I looked up on youtube "how to parse data with mongodb node js" and found: `https://www.youtube.com/watch?v=vcJwAYHaS-k`
 
 # Code
 
