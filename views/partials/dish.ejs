@@ -1,9 +1,9 @@
 <!--This is a template for a dish, displayed on the dishes.ejs page-->
 <section class="dish">
-  <h3><%= dishName %></h3>
+  <h3><%= allDishes[0].name %></h3>
   <div class="dishImage">
-    <img src="static/images/<%= dishImage %>" alt="" />
+    <img src="static/images/<%= allDishes[0].img %>" alt="" />
   </div>
-  <p><%= dishTags %></p>
-  <p>Quality: <%= dishQuality %></p>
+  <p><%= allDishes[0].tags %></p>
+  <p>Quality: <%= allDishes[0].quality %></p>
 </section>

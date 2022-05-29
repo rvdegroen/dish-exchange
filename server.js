@@ -15,22 +15,23 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 // new client mongodb
 const client = new MongoClient(url);
-// database
 
-// test
+// DATABASE VARIABLES AFTER CLIENT IS CONNECTED
+// Variable of the database dish-exchange (with const, immediately use it)
+let database;
+// Variable of dishes collection within dish-exchange
+let dishesCollection;
+
+// CONNECT DATABASE
 async function run() {
-  try {
-    // Connect the client to the server
-    await client.connect();
-    // Establish and verify connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Connected successfully to server");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+  // Connect the client to url that's saved in .env
+  await client.connect();
+  // Variable of the database dish-exchange
+  database = client.db("dish-exchange");
+  // Variable of dishes collection within dish-exchange
+  dishesCollection = database.collection("dishes");
 }
-run().catch(console.dir);
+run();
 
 // MIDDLEWARE
 // express knows all my static files are in my static folder
@@ -38,14 +39,16 @@ app.use(express.static("static"));
 
 // ROUTES
 // homepage
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  // I want to retrieve data with .find and it returns a cursor
+  const cursor = dishesCollection.find();
+  // i have a cursor but I want my dishes
+  const allDishes = await cursor.toArray();
+  console.log(allDishes);
+
   res.render("pages/dishes", {
-    numberOfDishes: 22,
-    dishName: "whatever",
-    dishImage: "#",
-    dishTags: ["asian", "thai"],
-    dishIngredients: ["milk", "corn"],
-    dishQuality: 3,
+    numberOfDishes: allDishes.length,
+    allDishes,
   });
 });
 

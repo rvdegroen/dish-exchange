@@ -52,7 +52,7 @@ p {
 }
 
 .dish {
-  background-color: red;
+  background-color: rgb(255, 151, 203);
 }
 
 .dishImage {
@@ -65,4 +65,12 @@ p {
 
 .dishQuality {
   background-color: aqua;
+}
+
+.subtext {
+  color: red;
+}
+
+.heading {
+  color: green;
 }

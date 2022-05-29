@@ -89,9 +89,15 @@ This is a guide for myself to document my process, so I won't forget and won't g
 59. googled "how to link variables from `server.js` to `ejs`" and found: `https://www.geeksforgeeks.org/how-to-make-js-variables-accessible-to-ejs-files/`
 60. hard code variables I have in my `.ejs` into `server.js` so I can open it from localhost:3000
 
-## Front-end
+61. working on connecting database googled `https://www.mongodb.com/docs/drivers/node/current/usage-examples/count/`
+62. with `collections.find` it will return a `cursor`, because if it would return all the data at once, the pc's memory might be full and the application wouldn't work good, so instead it returns a `cursor`. source: https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/read-operations/cursor/
+63. You can retrieve data from a cursor with `toArray()` if you do want everything at once and it can handle it, or with `forEach()` to look through them one by one.
+64. .length is an array property
+65. In `server.js` I got the cursor of `dishesCollection` and got every dish with `toArray()`
 
-56. I started working on my `pages` so that the information I need is in there.
+66. put data in server.js in route `/`
+67. added `numberOfDishes` and `allDishes`
+68. In `dish.ejs` we want data from `allDishes` with `forloop`
 
 # Code
 
