@@ -81,8 +81,14 @@ This is a guide for myself to document my process, so I won't forget and won't g
 
 56. I started working on my `pages` HTML/EJS a bit, just to have the basics in there (without the web API of some sort)
 
-57. installed `body-parser` with `npm install body-parser --save`
-58. added `const= bodyParser = require('body-parser')` in `server.js`
+57. I installed the vscode extension `gitlens` as it shows extra information (e.g. commits, branches, remotes) about my project when I go into the `source control` tab.
+
+##
+
+## to add later:
+
+58. installed `body-parser` with `npm install body-parser --save`
+59. added `const= bodyParser = require('body-parser')` in `server.js`
 
 ## adding stuff
 
@@ -98,6 +104,8 @@ This is a guide for myself to document my process, so I won't forget and won't g
 66. put data in server.js in route `/`
 67. added `numberOfDishes` and `allDishes`
 68. In `dish.ejs` we want data from `allDishes` with `forloop`
+
+## adding more stuff
 
 # Code
 
@@ -143,6 +151,14 @@ source: https://ejs.co/#docs
 
 # Variables
 
+## In server.js
+
+1. `let database` = variable of the database dish-exchange
+2. `let dishesCollection` = variable of dishes collection within dish-exchange
+3. `cursor` = `dishesCollection.find()` in route `/`
+4. `allDishes` = showing all documents in `dishesCollection` with: `await cursor.toArray()` in route `/`
+5. `numberOfDishes` = `allDishes.length` as a number shown on `dishes.ejs` in route `/`
+
 ## in dishes.ejs
 
 1. `numberOfDishes` = number of total documents in mongodb
@@ -163,3 +179,5 @@ source: https://ejs.co/#docs
 2. `dishImage` = value: image in /images in `dish.ejs`
 3. `dishTags` = value: tags, which is an array in `dish.ejs`
 4. `dishQuality` = value: quality, which is a number in `dish.ejs`
+5. `dishId` = id of the dish for a route in `/dish/dishId` in `dish.ejs`
+6. `arrayNumber` = a loop that increases the number of arraynumber depending on the amount of documents saved in mongoDB dishes in `dish.ejs`
