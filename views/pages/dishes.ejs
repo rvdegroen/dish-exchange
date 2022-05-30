@@ -6,10 +6,10 @@
 
   <body>
     <h1>Your Menu</h1>
-    <h2><%= numberOfDishes %></h2>
+    <h2><%= numberOfDishes %> dishes</h2>
     <!--I want to include the partial dish, x (numderOfDishes) times into this page-->
     <%-include('../partials/dish') %>
     <!--for loop for oneofthedishes-->
-    <a href="/add-dish">+</a>
+    <a href="/add-dish" class="floatingActionButton">+</a>
   </body>
 </html>
