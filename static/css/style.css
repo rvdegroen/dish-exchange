@@ -13,13 +13,19 @@
   --quality-not-filled: #c5c5c5;
 
   --empty-image: #dcdcdc;
+
+  --box-shadow-blur: #00000071;
+  --selected-color: #06896c;
 }
 
 *,
+*:before,
+*:after,
 html {
   margin: 0;
   padding: 0;
   font-family: "Lato", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -43,34 +49,94 @@ h3 {
 
 p {
   color: var(--text-color);
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*article in dish.ejs*/
+article {
+  background-color: var(--light-bg-color);
+  display: grid;
+  border-radius: 0.3em;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "one two";
+  box-shadow: 0 2px 10px var(--box-shadow-blur);
 }
 
 /*****SPECIFIC TEXT STYLING***/
 
-.backButton {
-  border-bottom: 1px black solid;
+/***styling for dishes.ejs***/
+/*a > article > div > text*/
+.dishText {
+  grid-area: two;
+  padding: 1.5em 1em;
 }
 
-.dish {
-  background-color: rgb(255, 151, 203);
-}
-
+/*a > article > div > image*/
 .dishImage {
-  background-color: orange;
+  background-color: rgb(88, 31, 58);
+  grid-area: one;
+  border-radius: 0.3em 0 0 0.3em;
 }
 
+/*text that shows quality is usually smaller*/
+.qualityText {
+  font-size: 0.9em;
+  padding-top: 10px;
+}
+
+/*floating action button background*/
+.floatingActionButton {
+  position: fixed;
+  right: 10%;
+  bottom: 15%;
+  color: var(--light-bg-color);
+  background-color: var(--primary-color);
+  padding: 0.1em 0.4em;
+  border-radius: 5em;
+  font-size: 3em;
+  box-shadow: 0 0 4px var(--box-shadow-blur);
+}
+
+/***styling added for add-dishes.ejs***/
 .backButton {
-  background-color: green;
+  padding-right: 1em;
 }
 
 .dishQuality {
   background-color: aqua;
 }
 
-.subtext {
-  color: red;
-}
-
+/*p element in the form*/
 .heading {
   color: green;
+}
+
+/*subtext in the form*/
+.subtext {
+  color: var(--light-text-color);
+  font-size: 0.8em;
+}
+
+/*****HOVER STATES (for pc only)*****/
+a:hover {
+  opacity: 0.5;
+}
+
+.backButton:hover {
+  color: var(--text-color);
+}
+
+/*****ACTIVE STATES*****/
+a:hover {
+  opacity: 0.5;
+}
+
+.backButton:active {
+  color: var(--text-color);
 }
