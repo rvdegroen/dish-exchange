@@ -54,14 +54,24 @@ app.get("/", async (req, res) => {
   });
 });
 
-// page of the add-a-dish function
+// add-dish page
 app.get("/add-dish", (req, res) => {
   res.render("pages/add-dish");
 });
 
-// detail page of a dish
-app.get("/dish/?dishIdparams", (req, res) => {
-  res.render("pages/dish-details");
+// to post the info from add-dish into mongoDB
+app.post("/add-dish", async (req, res) => {
+  const newDish = {
+    name: "test dish",
+    quality: 3,
+    ingredients: ["chicken", "milk", "rice", "cream"],
+    tags: ["asian", "poke and sushi", "mild"],
+    img: "test.jpeg",
+  };
+  dishesCollection = database.collection("dishes");
+  dishesCollection.insertOne(newDish);
+  console.log(dishesCollection);
+  res.render("pages/add-dish");
 });
 
 // 404 error pages
