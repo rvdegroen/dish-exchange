@@ -1,9 +1,16 @@
 <!--This is a template for a dish, displayed on the dishes.ejs page-->
-<section class="dish">
-  <h3><%= allDishes[0].name %></h3>
-  <div class="dishImage">
-    <img src="static/images/<%= allDishes[0].img %>" alt="" />
-  </div>
-  <p><%= allDishes[0].tags %></p>
-  <p>Quality: <%= allDishes[0].quality %></p>
-</section>
+<!--for every dish in allDishes, I want to loop and I do this with arrayNumber, which is a number-->
+<% for (let arrayNumber = 0; arrayNumber < allDishes.length; arrayNumber++) { %>
+<a href="/dish/<%=allDishes[arrayNumber].id%>">
+  <article>
+    <div class="dishText">
+      <h3><%=allDishes[arrayNumber].name %></h3>
+      <p><%=allDishes[arrayNumber].tags %></p>
+      <p class="qualityText">Quality: <%=allDishes[arrayNumber].quality %></p>
+    </div>
+    <div class="dishImage">
+      <img src="static/images/<%= allDishes[arrayNumber].img %>" alt="" />
+    </div>
+  </article>
+</a>
+<% } %>
