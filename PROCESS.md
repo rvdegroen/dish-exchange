@@ -116,6 +116,21 @@ This is a guide for myself to document my process, so I won't forget and won't g
 ##
 
 74. in `.eslintrc.json` I turned off `"prefer-destructuring": "off"`, becauce I just don't want to bother understanding it now and otherwise it will make my code look confusing.
+75. working on webAPI, thirdpartyAPI, progressive enhancement with media device API and spoonaculair
+76. example code: https://usefulangle.com/post/352/javascript-capture-image-from-camera
+
+## NOTES
+
+77. ADDED BTN IN ADD-DISH - ID AUTODETECTEDFOODBUTTON WITH CLASS HIDDEN
+78. ADDED SCRIPT IN ADD-DISH
+79. ADDED HIDDEN IN CSS FILE
+80. need to - ADD SCRIPT PATH
+81. ADDED VIDEO AND CANVAS
+82. epreventdefault so it wont post
+
+83. post request to spoonaculair url with fetch
+84. json string is what you need to send so you want to send a (name) file , in spoonaculair it wwants a binaryimgfile
+85. how to get binaryimgfile:
 
 # Code
 
