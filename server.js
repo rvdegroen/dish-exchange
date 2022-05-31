@@ -1,8 +1,8 @@
 // REQUIRE VARIABLES
 require("dotenv").config();
 const express = require("express");
-const { MongoClient } = require("mongodb");
-// const bodyParser = require("body-parser");
+const { MongoClient, ObjectId } = require("mongodb");
+const bodyParser = require("body-parser");
 
 // VARIABLES
 const app = express();
@@ -36,6 +36,10 @@ run();
 // MIDDLEWARE
 // express knows all my static files are in my static folder
 app.use(express.static("static"));
+// parse application/json
+app.use(bodyParser.json());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // ROUTES
 
@@ -45,7 +49,7 @@ app.get("/", async (req, res) => {
   const cursor = dishesCollection.find();
   // I have a cursor but I want my collection with all the dishes documents
   const allDishes = await cursor.toArray();
-  console.log(allDishes);
+  // console.log(allDishes);
 
   res.render("pages/dishes", {
     // variables in the front-end
@@ -59,19 +63,39 @@ app.get("/add-dish", (req, res) => {
   res.render("pages/add-dish");
 });
 
-// to post the info from add-dish into mongoDB
+// add-dish post into mongoDB
 app.post("/add-dish", async (req, res) => {
-  const newDish = {
-    name: "test dish",
-    quality: 3,
-    ingredients: ["chicken", "milk", "rice", "cream"],
-    tags: ["asian", "poke and sushi", "mild"],
+  const newDish = await dishesCollection.insertOne({
+    name: req.body.dishName,
+    quality: req.body.dishQuality,
+    ingredients: req.body.ingredients.split(","),
+    tags: req.body.tags,
     img: "test.jpeg",
-  };
-  dishesCollection = database.collection("dishes");
-  dishesCollection.insertOne(newDish);
-  console.log(dishesCollection);
-  res.render("pages/add-dish");
+  });
+  // console log will return the insertedId
+  // console.log("newDish", newDish);
+  const insertedId = newDish.insertedId;
+  // using ``, because then I can use the ${} to insert variables (template literals)
+  res.redirect(`/dish/${insertedId}`);
+});
+
+// dish-details page
+// dishId has the same Id as insertedId from line 79, because that's where you go redirected
+app.get("/dish/:dishId", async (req, res) => {
+  const urlId = req.params.dishId;
+  console.log("urlId", urlId);
+  // a query will basically filter the information you're looking for
+  // we need to convert the urlId from "string" to (a new variable) objectId
+  // source: https://stackoverflow.com/questions/8233014/how-do-i-search-for-an-object-by-its-objectid-in-the-mongo-console
+  const query = { _id: new ObjectId(urlId) };
+  const dish = await dishesCollection.findOne(query);
+  // making sure that when you click on a dish, it will console.log the dish
+  console.log("dish", dish);
+
+  res.render("pages/dish-details", {
+    // variables in the front-end
+    dish,
+  });
 });
 
 // 404 error pages

@@ -1,7 +1,7 @@
 <!--This is a template for a dish, displayed on the dishes.ejs page-->
 <!--for every dish in allDishes, I want to loop and I do this with arrayNumber, which is a number-->
 <% for (let arrayNumber = 0; arrayNumber < allDishes.length; arrayNumber++) { %>
-<a href="/dish/<%=allDishes[arrayNumber].id%>">
+<a href="/dish/<%=allDishes[arrayNumber]._id%>">
   <article>
     <div class="dishText">
       <h3><%=allDishes[arrayNumber].name %></h3>

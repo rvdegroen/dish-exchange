@@ -4,7 +4,7 @@
   --light-bg-color: #ffffff;
 
   --text-color: #4f4f4f;
-  --light-text-color: #c5c5c5;
+  --light-text-color: #a5a5a5;
 
   --primary-color: #41c1a5;
   --secondary-color: #fcab61;
@@ -119,10 +119,6 @@ article {
   padding-right: 1em;
 }
 
-.dishQuality {
-  background-color: aqua;
-}
-
 /*p element in the form*/
 .heading {
   color: green;
@@ -144,7 +140,7 @@ a:hover {
 }
 
 /*****ACTIVE STATES*****/
-a:hover {
+a:active {
   opacity: 0.5;
 }
 

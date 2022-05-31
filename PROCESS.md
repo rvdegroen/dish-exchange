@@ -105,7 +105,17 @@ This is a guide for myself to document my process, so I won't forget and won't g
 67. added `numberOfDishes` and `allDishes`
 68. In `dish.ejs` we want data from `allDishes` with `forloop`
 
-## adding more stuff
+## working on the add-dish route
+
+69. googled "how to insert a document into a collection of MongoDB with node.js driver" and found: `https://www.w3schools.com/nodejs/nodejs_mongodb_insert.asp`
+70. created a test document that i could post into my mongodb
+71. it wasn't clear for me on how to use bodyparser with `https://www.npmjs.com/package/body-parser` so i googled and found: `http://expressjs.com/en/resources/middleware/body-parser.html` and also `https://www.tutorialspoint.com/expressjs/expressjs_form_data.htm`
+72. ended up googling how to insert document into mongodb and found: `https://www.youtube.com/watch?v=4EXR5rhcEtw` which I've watched until 5.30
+73. made the `add-dish` res.redirect to the `insertedId`
+
+##
+
+74. in `.eslintrc.json` I turned off `"prefer-destructuring": "off"`, becauce I just don't want to bother understanding it now and otherwise it will make my code look confusing.
 
 # Code
 
@@ -158,6 +168,11 @@ source: https://ejs.co/#docs
 3. `cursor` = `dishesCollection.find()` in route `/`
 4. `allDishes` = showing all documents in `dishesCollection` with: `await cursor.toArray()` in route `/`
 5. `numberOfDishes` = `allDishes.length` as a number shown on `dishes.ejs` in route `/`
+6. `dishId` = id of the dish for a route in `/dish/dishId` in `dish.ejs` and `server.js`
+
+7. `newDish` = object with data from the form in `add-dish.ejs`, which will get posted and turned into a document in `mongodb`
+
+8. `urlId` = id used in the route for `dish-details` page
 
 ## in dishes.ejs
 
@@ -179,5 +194,5 @@ source: https://ejs.co/#docs
 2. `dishImage` = value: image in /images in `dish.ejs`
 3. `dishTags` = value: tags, which is an array in `dish.ejs`
 4. `dishQuality` = value: quality, which is a number in `dish.ejs`
-5. `dishId` = id of the dish for a route in `/dish/dishId` in `dish.ejs`
+5. `dishId` = id of the dish for a route in `/dish/dishId` in `dish.ejs` and `server.js`
 6. `arrayNumber` = a loop that increases the number of arraynumber depending on the amount of documents saved in mongoDB dishes in `dish.ejs`

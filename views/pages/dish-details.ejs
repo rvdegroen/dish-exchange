@@ -5,15 +5,15 @@
   </head>
 
   <body>
-    <h1><%-include('../partials/back')%><%=dishName%></h1>
-    <img src="<%=dishImage%>" alt="" />
-    <h2><%=dishName%></h2>
-    <p class="dishQuality">Quality: <%=dishQuality%></p>
+    <h1><%-include('../partials/back')%><%=dish.name%></h1>
+    <img src="/images/<%=dish.img%>" alt="" />
+    <h2><%=dish.name%></h2>
+    <p class="qualityText">Quality: <%=dish.quality%></p>
     <h3>Ingredients</h3>
-    <!--first try with a p, but the array needs to be put into an ul > (times the dishIngredient) li -->
-    <p><%=dishIngredients%></p>
+    <!-- to show the array as an ul > li, I need a for loop -->
+    <p><%=dish.ingredients%></p>
     <h3>Tags</h3>
     <!--first try with a p, but the array needs to be put into an ul > (times the dishIngredient) li -->
-    <p><%=dishTags%></p>
+    <p><%=dish.tags%></p>
   </body>
 </html>
