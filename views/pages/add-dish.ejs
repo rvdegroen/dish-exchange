@@ -289,7 +289,7 @@
           e.preventDefault();
           canvas.classList.add("hidden");
           video.classList.remove("hidden");
-          // permission to use media with only video | source:
+          // permission to use media with only video | source: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/mediaDevices
           const stream = await navigator.mediaDevices.getUserMedia({
             video: true,
             audio: false,
@@ -301,17 +301,18 @@
           setTimeout(async () => {
             video.classList.add("hidden");
             canvas.classList.remove("hidden");
-            // draw img onto the canvas, as source we have the video, 00 means it paints the whole canvas with 0 0
+            // draw img onto the canvas, as source we have the video, 00 means it paints the whole canvas with 0 0 | source: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
             canvas
               .getContext("2d")
               .drawImage(video, 0, 0, canvas.width, canvas.height);
             // toDataURL will take anything painted on the canvas and turn it into a jpeg in the form of a dataURL
             const imageData = canvas.toDataURL("image/jpeg");
 
-            // source https://stackoverflow.com/a/65669404/4409162
-            // if I want an img file (which is what the API needs), I first need a blob (binary large object)
+            // toDataUrl sends back a data URL, but the API needs an imageUrl, as stated on their documentation and I can do this by using a "blob" | source https://stackoverflow.com/a/65669404/4409162 and https://spoonacular.com/food-api/docs#Image-Classification-File
+
             // I can fetch (send http get request) any data URL, so I can fetch imageData
             const blob = await (await fetch(imageData)).blob();
+
             // you use new because file is a class, you create an array and the only element in the array is blob - file wants an array, hence you make an array with blob in it
             const file = new File([blob], "fileName.jpg", {
               type: "image/jpeg",
@@ -320,7 +321,7 @@
             });
 
             // source https://stackoverflow.com/a/40826943
-            // created a const called formData (name could be anything) and then created a new formData (name needs to be FormData)
+            // created a const called formData (name could be anything) and then created a new formData (name needs to be FormData, because it's a class)
             const formData = new FormData();
             // spoonacular expects 1 paramater called file into the body, and the value of that file is the binary data (blob turned into file in line 316)
             // formdata does special encoding, which sets the content type header - spoonacular expects the request body to be in in the format that .append uses
