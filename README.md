@@ -86,3 +86,4 @@ To be able to use Spoonacular, you will need an API key. I'm only using spoonacu
 24. Paste your API key as the value of the variable `API_KEY` in your `.env` file
 
 Now you should have everything you need and you're ready to go!
+test
