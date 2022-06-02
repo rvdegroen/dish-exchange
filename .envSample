@@ -1,3 +1,2 @@
-DATABASE_URL = mongodb+srv://<username>:<password>@cluster0.mapny.mongodb.net/?retryWrites=true&w=majority
-
-in username you put in your username, in password your password, and if you have a different cluster than cluster0, change that too. 
+DATABASE_URL=<your-mongodb-connection-string>
+API_KEY=<your-api-key>
