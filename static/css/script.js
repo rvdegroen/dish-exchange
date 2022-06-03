@@ -3,6 +3,8 @@ const autodetectFoodButton = document.getElementById("autodetectFoodButton");
 const dishNameInput = document.getElementById("dishName");
 const canvas = document.getElementById("canvas");
 const video = document.getElementById("video");
+// line below gives my linter errors, so I'm not using script.js 
+// const apiKey = <%=process.env.API_KEY%>;
 
 // show button if mediDevices is supported
 if (navigator.mediaDevices) {
@@ -45,7 +47,7 @@ if (navigator.mediaDevices) {
 
       // into my spoonacular
       const response = await fetch(
-        "https://api.spoonacular.com/food/images/classify?apiKey=<%= process.env.API_KEY %>",
+        "https://api.spoonacular.com/food/images/classify?apiKey=" + apiKey,
         {
           method: "POST",
           body: formData,
