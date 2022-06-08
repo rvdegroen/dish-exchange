@@ -24,23 +24,14 @@ let dishesCollection;
 
 // CONNECT DATABASE
 async function run() {
-  try {
-    // Connect the client to url that's saved in .env file
-    await client.connect();
-
-    // Establish and verify connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Connected successfully to server");
-    // Variable of the database dish-exchange
-    database = client.db("dish-exchange");
-    // Variable of dishes collection within dish-exchange
-    dishesCollection = database.collection("dishes");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+  // Connect the client to url that's saved in .env file
+  await client.connect();
+  // Variable of the database dish-exchange
+  database = client.db("dish-exchange");
+  // Variable of dishes collection within dish-exchange
+  dishesCollection = database.collection("dishes");
 }
-run().catch(console.dir);
+run();
 
 // MIDDLEWARE
 // express knows all my static files are in my static folder
