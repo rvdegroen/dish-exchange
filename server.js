@@ -47,6 +47,8 @@ async function run() {
     // TEMPORARY
     // I want to show the error with error message in a (Server error response)
     console.dir(err);
+    // if I wanted to show it up on the 404 page as variable use next line below:
+    // res.render("pages/404", { error: err.message });
   }
 }
 run();
