@@ -43,13 +43,13 @@ async function run() {
     database = client.db("dish-exchange");
     // Variable of dishes collection within dish-exchange
     dishesCollection = database.collection("dishes");
-  } catch {
+  } catch (err) {
     // TEMPORARY
     // I want to show the error with error message in a (Server error response)
-    console.log("Lost connection to the server");
+    console.dir(err);
   }
 }
-run().catch(console.dir);
+run();
 
 // MIDDLEWARE
 // express knows all my static files are in my static folder
