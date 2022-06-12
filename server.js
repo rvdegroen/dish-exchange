@@ -65,18 +65,24 @@ app.get("/add-dish", (req, res) => {
 
 // add-dish post into mongoDB
 app.post("/add-dish", async (req, res) => {
-  const newDish = await dishesCollection.insertOne({
-    name: req.body.dishName,
-    quality: req.body.dishQuality,
-    ingredients: req.body.ingredients.split(","),
-    tags: req.body.tags,
-    img: "test.jpeg",
-  });
-  // console log will return the insertedId
-  // console.log("newDish", newDish);
-  const insertedId = newDish.insertedId;
-  // using ``, because then I can use the ${} to insert variables (template literals)
-  res.redirect(`/dish/${insertedId}`);
+  // using try & catch for things that could potentially throw an error
+  try {
+    const newDish = await dishesCollection.insertOne({
+      name: req.body.dishName,
+      quality: req.body.dishQuality,
+      ingredients: req.body.ingredients.split(","),
+      tags: req.body.tags,
+      img: "test.jpeg",
+    });
+    // console log will return the insertedId
+    // console.log("newDish", newDish);
+    const insertedId = newDish.insertedId;
+    // using ``, because then I can use the ${} to insert variables (template literals)
+    res.redirect(`/dish/${insertedId}`);
+    // if something goes wrong then it will stop the code in try and go to catch to show the error on the add-dish page
+  } catch (err) {
+    res.render("pages/add-dish", { error: err.message });
+  }
 });
 
 // dish-details page

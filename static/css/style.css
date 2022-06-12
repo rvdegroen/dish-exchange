@@ -179,6 +179,11 @@ legend {
   display: flex;
 }
 
+/*error message*/
+.error {
+  color: red;
+}
+
 /*****HOVER STATES (for pc only)*****/
 a:hover {
   opacity: 0.5;

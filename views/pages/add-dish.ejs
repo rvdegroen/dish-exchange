@@ -6,6 +6,10 @@
 
   <body>
     <h1><%-include('../partials/back') %> Add a Dish</h1>
+    <!--error message-->
+    <% if (typeoff error !== 'undefined') {%>
+    <p class="error"><%= error %></p>
+    <% } %>
     <!--main feature: to add the dish into the database of mongoDB-->
     <!--for the action, I want to send you to the dish-details.ejs page + the id of the dish you just created-->
     <form action="" method="post">
