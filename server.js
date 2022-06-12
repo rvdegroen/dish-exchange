@@ -23,15 +23,33 @@ let database;
 let dishesCollection;
 
 // CONNECT DATABASE
+// async function run() {
+//  // Connect the client to url that's saved in .env file
+//  await client.connect();
+//  // Variable of the database dish-exchange
+//  database = client.db("dish-exchange");
+//  // Variable of dishes collection within dish-exchange
+//  dishesCollection = database.collection("dishes");
+// }
+// run();
 async function run() {
-  // Connect the client to url that's saved in .env file
-  await client.connect();
-  // Variable of the database dish-exchange
-  database = client.db("dish-exchange");
-  // Variable of dishes collection within dish-exchange
-  dishesCollection = database.collection("dishes");
+  try {
+    // Connect client to url that's save in .env (server)
+    await client.connect();
+    // Establish and  verify connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Connected successfully to server");
+    // Variable of dish-exchange database
+    database = client.db("dish-exchange");
+    // Variable of dishes collection within dish-exchange
+    dishesCollection = database.collection("dishes");
+  } catch {
+    // TEMPORARY
+    // I want to show the error with error message in a (Server error response)
+    console.log("Lost connection to the server");
+  }
 }
-run();
+run().catch(console.dir);
 
 // MIDDLEWARE
 // express knows all my static files are in my static folder
