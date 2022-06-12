@@ -7,7 +7,7 @@
   <body>
     <h1><%-include('../partials/back') %> Add a Dish</h1>
     <!--error message-->
-    <% if (typeoff error !== 'undefined') {%>
+    <% if (typeof error !== 'undefined') {%>
     <p class="error"><%= error %></p>
     <% } %>
     <!--main feature: to add the dish into the database of mongoDB-->
