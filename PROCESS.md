@@ -132,6 +132,12 @@ This is a guide for myself to document my process, so I won't forget and won't g
 84. json string is what you need to send so you want to send a (name) file , in spoonaculair it wwants a binaryimgfile
 85. how to get binaryimgfile:
 
+## things I changed or added
+
+86. try & catch error in `server.js` and `add-dish` page
+87. edited class `.error` to `color red` in `css`
+88.
+
 # Code
 
 ## General
