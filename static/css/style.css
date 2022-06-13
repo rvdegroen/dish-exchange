@@ -98,6 +98,27 @@ input[type="radio"] {
 }
 
 /*****SPECIFIC TEXT STYLING***/
+/*primary button*/
+.primaryButton {
+  width: 60%;
+  padding: 0.9em;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--light-bg-color);
+}
+
+/*secondary button*/
+.secondaryButton {
+  color: var(--light-bg-color);
+  border: none;
+  border-radius: 3px;
+  padding: 0.9em;
+  background: var(--secondary-color);
+  margin: 0.5em 0;
+  margin-top: 0.5em;
+  width: 10em;
+}
 
 /***styling for dishes.ejs***/
 /*a > article > div > text*/
@@ -148,19 +169,11 @@ input[type="radio"] {
   padding-right: 1em;
 }
 
-.addDish > div {
+/*to center primary button*/
+form > div {
   margin: 40px 0 40px 0;
   justify-content: center;
   display: flex;
-}
-
-.addDish > div > input {
-  width: 60%;
-  padding: 0.9em;
-  border-radius: 3px;
-  background-color: var(--primary-color);
-  border: none;
-  color: var(--light-bg-color);
 }
 
 /*p element in the form*/
