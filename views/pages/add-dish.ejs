@@ -16,17 +16,9 @@
       <fieldset>
         <legend>Name of the dish</legend>
         <input type="text" id="dishName" name="dishName" required />
-        <button id="autodetectFoodButton" class="hidden">
-          Autodetect dish
-        </button>
+        <button id="autodetectFoodButton" class="hidden">Autodetect dish</button>
         <!-- this is NOT inline styling, determines the size of the screenshot-->
-        <video
-          id="video"
-          width="320"
-          height="240"
-          class="hidden"
-          autoplay
-        ></video>
+        <video id="video" width="320" height="240" class="hidden" autoplay></video>
         <canvas id="canvas" width="320" height="240" class="hidden"></canvas>
       </fieldset>
 
@@ -34,32 +26,20 @@
         <legend>Dish quality</legend>
         <p class="subtext">How good are you at making this dish?</p>
 
-        <input
-          type="radio"
-          id="dishQuality1"
-          value="1"
-          name="dishQuality"
-          required
-        />
-        <label for="dishQuality1">1</label>
+        <div class="input">
+          <input type="radio" id="dishQuality1" value="1" name="dishQuality" required />
+          <label for="dishQuality1">1</label>
+        </div>
 
-        <input
-          type="radio"
-          id="dishQuality2"
-          value="2"
-          name="dishQuality"
-          required
-        />
-        <label for="dishQuality2">2</label>
+        <div class="input">
+          <input type="radio" id="dishQuality2" value="2" name="dishQuality" required />
+          <label for="dishQuality2">2</label>
+        </div>
 
-        <input
-          type="radio"
-          id="dishQuality3"
-          value="3"
-          name="dishQuality"
-          required
-        />
-        <label for="dishQuality3">3</label>
+        <div class="input">
+          <input type="radio" id="dishQuality3" value="3" name="dishQuality" required />
+          <label for="dishQuality3">3</label>
+        </div>
       </fieldset>
 
       <fieldset>
@@ -78,207 +58,226 @@
         <!--if there is no js, then dont have dropwdowns and just input field-->
         <p class="heading">Cuisine</p>
 
-        <input type="checkbox" id="european" value="european" name="tags" />
-        <label for="european">European</label>
+        <div class="input">
+          <input type="checkbox" id="european" value="european" name="tags" />
+          <label for="european">European</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="middle-easter"
-          value="middle-easter"
-          name="tags"
-        />
-        <label for="middle-easter">Middle Eastern</label>
+        <div class="input">
+          <input type="checkbox" id="middle-easter" value="middle-easter" name="tags" />
+          <label for="middle-easter">Middle Eastern</label>
+        </div>
 
-        <input type="checkbox" id="african" value="african" name="tags" />
-        <label for="african">African</label>
+        <div class="input">
+          <input type="checkbox" id="african" value="african" name="tags" />
+          <label for="african">African</label>
+        </div>
 
-        <input type="checkbox" id="asian" value="asian" name="tags" />
-        <label for="asian">Asian</label>
+        <div class="input">
+          <input type="checkbox" id="asian" value="asian" name="tags" />
+          <label for="asian">Asian</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="north-american"
-          value="north-american"
-          name="tags"
-        />
-        <label for="north-american">North American</label>
+        <div class="input">
+          <input type="checkbox" id="north-american" value="north-american" name="tags" />
+          <label for="north-american">North American</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="south-american"
-          value="south-american"
-          name="tags"
-        />
-        <label for="south-american">South American</label>
+        <div class="input">
+          <input type="checkbox" id="south-american" value="south-american" name="tags" />
+          <label for="south-american">South American</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="other-cuisines"
-          value="other-cuisines"
-          name="tags"
-        />
-        <label for="other-cuisines">Other cuisines</label>
+        <div class="input">
+          <input type="checkbox" id="other-cuisines" value="other-cuisines" name="tags" />
+          <label for="other-cuisines">Other cuisines</label>
+        </div>
 
         <p class="heading">Dish type</p>
 
-        <input type="checkbox" id="meat" value="meat" name="tags" />
-        <label for="meat">Meat</label>
+        <div class="input">
+          <input type="checkbox" id="meat" value="meat" name="tags" />
+          <label for="meat">Meat</label>
+        </div>
 
-        <input type="checkbox" id="fish" value="fish" name="tags" />
-        <label for="fish">Fish</label>
+        <div class="input">
+          <input type="checkbox" id="fish" value="fish" name="tags" />
+          <label for="fish">Fish</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="shellfish-and-seafood"
-          value="shellfish-and-seafood"
-          name="tags"
-        />
-        <label for="shellfish-and-seafood">Shellfish and seafood</label>
+        <div class="input">
+          <input
+            type="checkbox"
+            id="shellfish-and-seafood"
+            value="shellfish-and-seafood"
+            name="tags"
+          />
+          <label for="shellfish-and-seafood">Shellfish and seafood</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="vegetables-and-sides"
-          value="vegetables-and-sides"
-          name="tags"
-        />
-        <label for="vegetables-and-sides">Vegetables and sides</label>
+        <div class="input">
+          <input
+            type="checkbox"
+            id="vegetables-and-sides"
+            value="vegetables-and-sides"
+            name="tags"
+          />
+          <label for="vegetables-and-sides">Vegetables and sides</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="pasta-and-noodles"
-          value="pasta-and-noodles"
-          name="tags"
-        />
-        <label for="pasta-and-noodles">Pasta and noodles</label>
+        <div class="input">
+          <input
+            type="checkbox"
+            id="pasta-and-noodles"
+            value="pasta-and-noodles"
+            name="tags"
+          />
+          <label for="pasta-and-noodles">Pasta and noodles</label>
+        </div>
 
-        <input type="checkbox" id="pizza" value="pizza" name="tags" />
-        <label for="pizza">Pizza</label>
+        <div class="input">
+          <input type="checkbox" id="pizza" value="pizza" name="tags" />
+          <label for="pizza">Pizza</label>
+        </div>
 
-        <input type="checkbox" id="burgers" value="burgers" name="tags" />
-        <label for="burgers">Burgers</label>
+        <div class="input">
+          <input type="checkbox" id="burgers" value="burgers" name="tags" />
+          <label for="burgers">Burgers</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="stews-and-curries"
-          value="stews-and-curries"
-          name="tags"
-        />
-        <label for="stews-and-curries">Stews and curries</label>
+        <div class="input">
+          <input
+            type="checkbox"
+            id="stews-and-curries"
+            value="stews-and-curries"
+            name="tags"
+          />
+          <label for="stews-and-curries">Stews and curries</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="sushi-and-poke"
-          value="sushi-and-poke"
-          name="tags"
-        />
-        <label for="sushi-and-poke">Sushi and poke</label>
+        <div class="input">
+          <input type="checkbox" id="sushi-and-poke" value="sushi-and-poke" name="tags" />
+          <label for="sushi-and-poke">Sushi and poke</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="kebab-and-skewers"
-          value="kebab-and-skewers"
-          name="tags"
-        />
-        <label for="kebab-and-skewers">Kebab and skewers</label>
+        <div class="input">
+          <input
+            type="checkbox"
+            id="kebab-and-skewers"
+            value="kebab-and-skewers"
+            name="tags"
+          />
+          <label for="kebab-and-skewers">Kebab and skewers</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="soup-and-ramen"
-          value="soup-and-ramen"
-          name="tags"
-        />
-        <label for="soup-and-ramen">Soup and ramen</label>
+        <div class="input">
+          <input type="checkbox" id="soup-and-ramen" value="soup-and-ramen" name="tags" />
+          <label for="soup-and-ramen">Soup and ramen</label>
+        </div>
 
-        <input type="checkbox" id="salads" value="salads" name="tags" />
-        <label for="salads">Salads</label>
+        <div class="input">
+          <input type="checkbox" id="salads" value="salads" name="tags" />
+          <label for="salads">Salads</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="sandwiches-wraps-and-bread"
-          value="sandwiches-wraps-and-bread"
-          name="tags"
-        />
-        <label for="sandwiches-wraps-and-bread"
-          >Sandwiches, wraps and bread</label
-        >
+        <div class="input">
+          <input
+            type="checkbox"
+            id="sandwiches-wraps-and-bread"
+            value="sandwiches-wraps-and-bread"
+            name="tags"
+          />
+          <label for="sandwiches-wraps-and-bread">Sandwiches, wraps and bread</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="breakfast-brunch-and-eggs"
-          value="breakfast-brunch-and-eggs"
-          name="tags"
-        />
-        <label for="breakfast-brunch-and-eggs"
-          >Breakfast, brunch and eggs</label
-        >
+        <div class="input">
+          <input
+            type="checkbox"
+            id="breakfast-brunch-and-eggs"
+            value="breakfast-brunch-and-eggs"
+            name="tags"
+          />
+          <label for="breakfast-brunch-and-eggs">Breakfast, brunch and eggs</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="small-plates-and-sharing"
-          value="small-plates-and-sharing"
-          name="tags"
-        />
-        <label for="small-plates-and-sharing">Small plates and sharing</label>
+        <div class="input">
+          <input
+            type="checkbox"
+            id="small-plates-and-sharing"
+            value="small-plates-and-sharing"
+            name="tags"
+          />
+          <label for="small-plates-and-sharing">Small plates and sharing</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="desserts-and-pastries"
-          value="desserts-and-pastries"
-          name="tags"
-        />
-        <label for="desserts-and-pastries">Desserts and pastries</label>
+        <div class="input">
+          <input
+            type="checkbox"
+            id="desserts-and-pastries"
+            value="desserts-and-pastries"
+            name="tags"
+          />
+          <label for="desserts-and-pastries">Desserts and pastries</label>
+        </div>
 
         <p class="heading">Spice level</p>
 
-        <input type="checkbox" id="not-spicy" value="not-spicy" name="tags" />
-        <label for="not-spicy">Not spicy</label>
+        <div class="input">
+          <input type="checkbox" id="not-spicy" value="not-spicy" name="tags" />
+          <label for="not-spicy">Not spicy</label>
+        </div>
 
-        <input type="checkbox" id="mild" value="mild" name="tags" />
-        <label for="mild">Mild</label>
+        <div class="input">
+          <input type="checkbox" id="mild" value="mild" name="tags" />
+          <label for="mild">Mild</label>
+        </div>
 
-        <input type="checkbox" id="medium" value="medium" name="tags" />
-        <label for="medium">Medium</label>
+        <div class="input">
+          <input type="checkbox" id="medium" value="medium" name="tags" />
+          <label for="medium">Medium</label>
+        </div>
 
-        <input type="checkbox" id="spicy" value="spicy" name="tags" />
-        <label for="spicy">Spicy</label>
+        <div class="input">
+          <input type="checkbox" id="spicy" value="spicy" name="tags" />
+          <label for="spicy">Spicy</label>
+        </div>
 
-        <input type="checkbox" id="extra-picy" value="extra-picy" name="tags" />
-        <label for="extra-picy">Extra spicy</label>
+        <div class="input">
+          <input type="checkbox" id="extra-picy" value="extra-picy" name="tags" />
+          <label for="extra-picy">Extra spicy</label>
+        </div>
 
         <p class="heading">Diet & allergies</p>
 
-        <input type="checkbox" id="vegan" value="vegan" name="tags" />
-        <label for="vegan">Vegan</label>
+        <div class="input">
+          <input type="checkbox" id="vegan" value="vegan" name="tags" />
+          <label for="vegan">Vegan</label>
+        </div>
 
-        <input type="checkbox" id="vegetarian" value="vegetarian" name="tags" />
-        <label for="vegetarian">Vegetarian</label>
+        <div class="input">
+          <input type="checkbox" id="vegetarian" value="vegetarian" name="tags" />
+          <label for="vegetarian">Vegetarian</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="gluten-free"
-          value="gluten-free"
-          name="tags"
-        />
-        <label for="gluten-free">Gluten-free</label>
+        <div class="input">
+          <input type="checkbox" id="gluten-free" value="gluten-free" name="tags" />
+          <label for="gluten-free">Gluten-free</label>
+        </div>
 
-        <input
-          type="checkbox"
-          id="lactose-free"
-          value="lactose-free"
-          name="tags"
-        />
-        <label for="lactose-free">Lactose-free</label>
+        <div class="input">
+          <input type="checkbox" id="lactose-free" value="lactose-free" name="tags" />
+          <label for="lactose-free">Lactose-free</label>
+        </div>
       </fieldset>
-
-      <input type="submit" value="Add your dish" />
+      <div>
+        <input type="submit" value="Add your dish" />
+      </div>
     </form>
 
     <script>
       // source: https://usefulangle.com/post/352/javascript-capture-image-from-camera
       // WEB API's cannot be used in server.js
-      const autodetectFoodButton = document.getElementById(
-        "autodetectFoodButton"
-      );
+      const autodetectFoodButton = document.getElementById("autodetectFoodButton");
       const dishNameInput = document.getElementById("dishName");
 
       // you can draw on canvas
@@ -306,9 +305,7 @@
             video.classList.add("hidden");
             canvas.classList.remove("hidden");
             // draw img onto the canvas, as source we have the video, 00 means it paints the whole canvas with 0 0 | source: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
-            canvas
-              .getContext("2d")
-              .drawImage(video, 0, 0, canvas.width, canvas.height);
+            canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
             // toDataURL will take anything painted on the canvas and turn it into a jpeg in the form of a dataURL
             const imageData = canvas.toDataURL("image/jpeg");
 

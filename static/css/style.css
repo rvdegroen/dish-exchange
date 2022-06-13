@@ -69,25 +69,25 @@ article {
 }
 
 /*****FORM STYLING***/
-input {
-  width: 100%;
-  height: 2.5em;
-  border: 2px solid var(--light-text-color);
-  border-radius: 5px;
-  padding-bottom: 10px;
-}
 
 input[type="text"] {
   padding: 0 0.8em;
   font-size: 1em;
+  width: 100%;
+  height: 2.5em;
+  border: 2px solid var(--light-text-color);
+  border-radius: 5px;
 }
 
+/*this makes the outer circle black and inside primary color*/
 input[name="dishQuality"] {
   accent-color: var(--primary-color);
 }
 
 fieldset {
   border: none;
+  display: flex;
+  flex-direction: column;
 }
 
 legend {
@@ -95,6 +95,26 @@ legend {
   font-weight: bold;
   color: var(--text-color);
   padding-top: 20px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  transform: scale(2);
+}
+
+form > div {
+  margin: 40px 0 40px 0;
+  justify-content: center;
+  display: flex;
+}
+
+form > div > input {
+  width: 60%;
+  padding: 0.9em;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--light-bg-color);
 }
 
 /*****SPECIFIC TEXT STYLING***/
@@ -150,13 +170,19 @@ legend {
 
 /*p element in the form*/
 .heading {
-  color: green;
+  background-color: var(--light-bg-color);
+  padding: 0.8em 0 0.8em 1em;
+  border: solid 3px var(--text-color);
+  border-radius: 5px;
+  font-size: 1em;
+  margin: 1em 0 1em 0;
 }
 
 /*subtext in the form*/
 .subtext {
   color: var(--light-text-color);
-  font-size: 0.8em;
+  font-size: 0.9em;
+  padding-bottom: 0.5em;
 }
 
 .hidden {
@@ -164,19 +190,50 @@ legend {
 }
 
 #video {
-  background-color: rgb(124, 37, 52);
+  align-self: center;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
 }
 
 #canvas {
-  background-color: rgb(226, 82, 106);
+  align-self: center;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
 }
 
 .h3dishDetails {
   padding-top: 20px;
 }
 
-.formGroup {
-  display: flex;
+#autodetectFoodButton {
+  color: var(--light-bg-color);
+  border: solid 3px var(--text-color);
+  border-radius: 3px;
+  padding: 0.5em;
+  background: var(--text-color);
+  margin: 0.5em 0;
+  margin-top: 0.5em;
+  width: 10em;
+  align-self: center;
+}
+
+.input {
+  margin: 0.8em 0 0.8em;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "one two";
+  align-items: center;
+}
+
+.input > input {
+  grid-area: two;
+}
+
+.input > label {
+  grid-area: one;
 }
 
 /*error message*/
