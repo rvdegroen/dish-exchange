@@ -84,7 +84,7 @@ app.post("/add-dish", async (req, res) => {
       name: req.body.dishName,
       quality: req.body.dishQuality,
       ingredients: req.body.ingredients.split(","),
-      tags: req.body.tags,
+      tags: req.body.tags.toString().split(","),
       img: "test.jpeg",
     });
     // console log will return the insertedId
@@ -152,7 +152,7 @@ app.post("/dish/:dishId/edit", async (req, res) => {
         name: req.body.dishName,
         quality: req.body.dishQuality,
         ingredients: req.body.ingredients.split(","),
-        tags: req.body.tags,
+        tags: req.body.tags.toString().split(","),
         img: "test.jpeg",
       },
     });
