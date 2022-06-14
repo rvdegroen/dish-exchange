@@ -6,26 +6,48 @@
 
   <body>
     <h1><%-include('../partials/back')%><%=dish.name%></h1>
+
+    <p id="error" class="error"><% if (typeof error !== 'undefined') {%> <%= error %><% } %></p>
+
     <img src="/images/<%=dish.img%>" alt="" />
     <h2><%=dish.name%></h2>
     <p class="qualityText">Quality: <%=dish.quality%></p>
     <h3 class="h3dishDetails">Ingredients</h3>
     <!--source: https://stackoverflow.com/questions/56600633/displaying-arrays-in-a-list-with-ejs-->
     <ul>
-      <%(dish.ingredients).forEach(function(item,index){%>
-      <li><%=item%></li>
-      <%})%>
+      <% for (let ingredient of dish.ingredients) { %>
+      <li><%= ingredient %></li>
+      <% } %>
     </ul>
     <h3 class="h3dishDetails">Tags</h3>
     <!--source: https://stackoverflow.com/questions/56600633/displaying-arrays-in-a-list-with-ejs-->
     <ul>
-      <%(dish.tags).forEach(function(item,index){%>
-      <li><%=item%></li>
-      <%})%>
+      <% for (let tag of dish.tags) { %>
+      <li><%= tag %></li>
+      <% } %>
     </ul>
     <div class="editButtons">
       <a href="/dish/<%=dish._id%>/edit" class="primaryButton">Edit</a>
-      <a href="/" class="deleteButton">Delete</a>
+      <a onclick="deleteDish('<%=dish._id%>')" class="deleteButton">Delete</a>
     </div>
+
+    <script>
+      async function deleteDish(dishId) {
+        // fetch sends HTTP request to run the method delete
+        const response = await fetch("/dish/" + dishId, {
+          method: "DELETE",
+        });
+        // if response is .ok, it will redirect to the route
+        if (response.ok) {
+          window.location.href = "/";
+        } else {
+          let error = document.getElementById("error");
+          // show err.message from server.js
+          const errorMessage = await response.text();
+          error.textContent = errorMessage;
+          console.log(errorMessage);
+        }
+      }
+    </script>
   </body>
 </html>

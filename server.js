@@ -164,6 +164,27 @@ app.post("/dish/:dishId/edit", async (req, res) => {
   }
 });
 
+// NEW
+// To delete a document
+app.delete("/dish/:dishId", async (req, res) => {
+  const urlId = req.params.dishId;
+  console.log("urlId", urlId);
+  // a query will basically filter the information you're looking for
+  // we need to convert the urlId from "string" to (a new variable) objectId
+  // source: https://stackoverflow.com/questions/8233014/how-do-i-search-for-an-object-by-its-objectid-in-the-mongo-console
+  const query = { _id: new ObjectId(urlId) };
+  // using try & catch for things that could potentially throw an error
+  try {
+    await dishesCollection.deleteOne(query);
+    // if deleteOne sends the response of "OK" then the brower knows it can redirect
+    res.send(`OK`);
+    // if something goes wrong then it will stop the code in try and go to catch to show the error on the add-dish page
+  } catch (err) {
+    // res.render("pages/edit-dish", { error: err.message, dish });
+    res.status(400).send(err.message);
+  }
+});
+
 // 404 error pages
 app.get("*", (req, res) => {
   res.send("This page does not exist!");

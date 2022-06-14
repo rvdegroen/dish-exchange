@@ -279,6 +279,7 @@ form > div {
 /*error message*/
 .error {
   color: red;
+  padding: 0;
 }
 
 /*****HOVER STATES (for pc only)*****/
