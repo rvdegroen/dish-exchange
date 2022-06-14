@@ -23,15 +23,6 @@ let database;
 let dishesCollection;
 
 // CONNECT DATABASE
-// async function run() {
-//  // Connect the client to url that's saved in .env file
-//  await client.connect();
-//  // Variable of the database dish-exchange
-//  database = client.db("dish-exchange");
-//  // Variable of dishes collection within dish-exchange
-//  dishesCollection = database.collection("dishes");
-// }
-// run();
 async function run() {
   try {
     // Connect client to url that's save in .env (server)
@@ -43,6 +34,7 @@ async function run() {
     database = client.db("dish-exchange");
     // Variable of dishes collection within dish-exchange
     dishesCollection = database.collection("dishes");
+    // NEW
   } catch (err) {
     // TEMPORARY
     // I want to show the error with error message in a (Server error response)
@@ -85,6 +77,7 @@ app.get("/add-dish", (req, res) => {
 
 // add-dish post into mongoDB
 app.post("/add-dish", async (req, res) => {
+  // NEW
   // using try & catch for things that could potentially throw an error
   try {
     const newDish = await dishesCollection.insertOne({
@@ -124,6 +117,7 @@ app.get("/dish/:dishId", async (req, res) => {
   });
 });
 
+// NEW
 // dish details edit page
 app.get("/dish/:dishId/edit", async (req, res) => {
   const urlId = req.params.dishId;
@@ -142,6 +136,7 @@ app.get("/dish/:dishId/edit", async (req, res) => {
   });
 });
 
+// NEW
 app.post("/dish/:dishId/edit", async (req, res) => {
   const urlId = req.params.dishId;
   console.log("urlId", urlId);
@@ -153,11 +148,13 @@ app.post("/dish/:dishId/edit", async (req, res) => {
   // using try & catch for things that could potentially throw an error
   try {
     await dishesCollection.updateOne(query, {
-      name: req.body.dishName,
-      quality: req.body.dishQuality,
-      ingredients: req.body.ingredients.split(","),
-      tags: req.body.tags,
-      img: "test.jpeg",
+      $set: {
+        name: req.body.dishName,
+        quality: req.body.dishQuality,
+        ingredients: req.body.ingredients.split(","),
+        tags: req.body.tags,
+        img: "test.jpeg",
+      },
     });
     // using ``, because then I can use the ${} to insert variables (template literals)
     res.redirect(`/dish/${urlId}`);
