@@ -16,6 +16,8 @@
 
   --box-shadow-blur: #00000071;
   --selected-color: #06896c;
+
+  --delete-color: #ed6f6f;
 }
 
 *,
@@ -47,9 +49,11 @@ h3 {
   padding: 0 0 10px;
 }
 
-p {
+p,
+li {
   color: var(--text-color);
   font-weight: 400;
+  padding-bottom: 5px;
 }
 
 a {
@@ -98,6 +102,8 @@ input[type="radio"] {
 }
 
 /*****SPECIFIC TEXT STYLING***/
+
+/***styling added for edit-dish.ejs***/
 /*primary button*/
 .primaryButton {
   width: 60%;
@@ -108,16 +114,15 @@ input[type="radio"] {
   color: var(--light-bg-color);
 }
 
-a.primaryButton {
-  margin-top: 1em;
-  width: 45%;
-  padding: 0.9em;
-  border-radius: 3px;
-  background-color: var(--primary-color);
-  border: none;
-  color: var(--light-bg-color);
+a.primaryButton,
+a.deleteButton {
   display: block;
   text-align: center;
+  margin: 1em 0;
+}
+
+a.primaryButton {
+  margin-right: 1em;
 }
 
 /*secondary button*/
@@ -130,6 +135,21 @@ a.primaryButton {
   margin: 0.5em 0;
   margin-top: 0.5em;
   width: 10em;
+}
+
+/*delete button*/
+.deleteButton {
+  width: 60%;
+  padding: 0.9em;
+  border-radius: 3px;
+  background-color: var(--delete-color);
+  border: none;
+  color: var(--light-bg-color);
+}
+
+/*div of editButton and deleteButton*/
+.editButtons {
+  display: flex;
 }
 
 /***styling for dishes.ejs***/

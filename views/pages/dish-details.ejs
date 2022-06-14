@@ -10,12 +10,22 @@
     <h2><%=dish.name%></h2>
     <p class="qualityText">Quality: <%=dish.quality%></p>
     <h3 class="h3dishDetails">Ingredients</h3>
-    <!-- to show the array as an ul > li, I need a for loop -->
-    <p><%=dish.ingredients%></p>
+    <!--source: https://stackoverflow.com/questions/56600633/displaying-arrays-in-a-list-with-ejs-->
+    <ul>
+      <%(dish.ingredients).forEach(function(item,index){%>
+      <li><%=item%></li>
+      <%})%>
+    </ul>
     <h3 class="h3dishDetails">Tags</h3>
-    <!--first try with a p, but the array needs to be put into an ul > (times the dishIngredient) li -->
-    <p><%=dish.tags%></p>
-    <a href="/dish/<%=dish._id%>/edit" class="primaryButton">Edit</a>
-    <a href="/" class="primaryButton">Delete</a>
+    <!--source: https://stackoverflow.com/questions/56600633/displaying-arrays-in-a-list-with-ejs-->
+    <ul>
+      <%(dish.tags).forEach(function(item,index){%>
+      <li><%=item%></li>
+      <%})%>
+    </ul>
+    <div class="editButtons">
+      <a href="/dish/<%=dish._id%>/edit" class="primaryButton">Edit</a>
+      <a href="/" class="deleteButton">Delete</a>
+    </div>
   </body>
 </html>
