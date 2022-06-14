@@ -108,6 +108,18 @@ input[type="radio"] {
   color: var(--light-bg-color);
 }
 
+a.primaryButton {
+  margin-top: 1em;
+  width: 45%;
+  padding: 0.9em;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--light-bg-color);
+  display: block;
+  text-align: center;
+}
+
 /*secondary button*/
 .secondaryButton {
   color: var(--light-bg-color);
