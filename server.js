@@ -3,6 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 const bodyParser = require("body-parser");
+const multer = require("multer");
+// INCLUDED IN NODEJS
+const path = require("path");
 
 // VARIABLES
 const app = express();
@@ -53,6 +56,17 @@ app.use(bodyParser.json());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// MIDDLEWARE MULTER | source: https://stackoverflow.com/questions/31592726/how-to-store-a-file-with-file-extension-with-multer/39650303#39650303
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, "./static/images/uploads/");
+  },
+  filename(_req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+const upload = multer({ storage });
+
 // ROUTES
 
 // homepage
@@ -76,16 +90,18 @@ app.get("/add-dish", (req, res) => {
 });
 
 // add-dish post into mongoDB
-app.post("/add-dish", async (req, res) => {
+app.post("/add-dish", upload.single("uploadImage"), async (req, res) => {
   // NEW
+  console.log(req.file);
   // using try & catch for things that could potentially throw an error
   try {
     const newDish = await dishesCollection.insertOne({
       name: req.body.dishName,
       quality: req.body.dishQuality,
       ingredients: req.body.ingredients.split(","),
-      tags: req.body.tags.toString().split(","),
-      img: "test.jpeg",
+      tags: Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags],
+      // it doesn't comes back as undefined if it doesn't exist
+      img: req?.file?.filename,
     });
     // console log will return the insertedId
     // console.log("newDish", newDish);
@@ -152,7 +168,7 @@ app.post("/dish/:dishId/edit", async (req, res) => {
         name: req.body.dishName,
         quality: req.body.dishQuality,
         ingredients: req.body.ingredients.split(","),
-        tags: req.body.tags.toString().split(","),
+        tags: Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags],
         img: "test.jpeg",
       },
     });
