@@ -9,7 +9,11 @@
 
     <p id="error" class="error"><% if (typeof error !== 'undefined') {%> <%= error %><% } %></p>
 
-    <img src="/images/<%=dish.img%>" alt="" />
+    <img
+      src="<%= dish.img === null ? 'https://place-hold.it/640x360&fontsize=24' : `/images/uploads/${dish.img}` %>"
+      alt=""
+      class="img"
+    />
     <h2><%=dish.name%></h2>
     <p class="qualityText">Quality: <%=dish.quality%></p>
     <h3 class="h3dishDetails">Ingredients</h3>
