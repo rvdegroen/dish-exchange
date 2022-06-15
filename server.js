@@ -55,7 +55,6 @@ app.use(express.static("static"));
 app.use(bodyParser.json());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-
 // MIDDLEWARE MULTER | source: https://stackoverflow.com/questions/31592726/how-to-store-a-file-with-file-extension-with-multer/39650303#39650303
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -153,7 +152,7 @@ app.get("/dish/:dishId/edit", async (req, res) => {
 });
 
 // NEW
-app.post("/dish/:dishId/edit", async (req, res) => {
+app.post("/dish/:dishId/edit", upload.single("uploadImage"), async (req, res) => {
   const urlId = req.params.dishId;
   console.log("urlId", urlId);
   // a query will basically filter the information you're looking for
@@ -169,7 +168,8 @@ app.post("/dish/:dishId/edit", async (req, res) => {
         quality: req.body.dishQuality,
         ingredients: req.body.ingredients.split(","),
         tags: Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags],
-        img: "test.jpeg",
+        // it doesn't comes back as undefined if it doesn't exist
+        img: req?.file?.filename,
       },
     });
     // using ``, because then I can use the ${} to insert variables (template literals)

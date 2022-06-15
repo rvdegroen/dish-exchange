@@ -11,9 +11,18 @@
     <% if (typeof error !== 'undefined') {%>
     <p class="error"><%= error %></p>
     <% } %>
-    <!--main feature: to add the dish into the database of mongoDB-->
+    <img
+      src="<%= dish.img === null ? 'https://place-hold.it/640x360&fontsize=24' : `/images/uploads/${dish.img}` %>"
+      alt=""
+      class="img"
+    />
     <!--for the action, I want to send you to the dish-details.ejs page + the id of the dish you just created-->
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
+      <!--uploading an image using multer-->
+      <fieldset>
+        <input type="file" name="uploadImage" accept="image/*" />
+      </fieldset>
+      <!--edit feature: to edit the dish / document in mongoDB-->
       <fieldset>
         <legend>Name of the dish</legend>
         <input type="text" id="dishName" name="dishName" required value="<%=dish.name%>" />
