@@ -90,7 +90,6 @@ app.get("/add-dish", (req, res) => {
 
 // add-dish post into mongoDB
 app.post("/add-dish", upload.single("uploadImage"), async (req, res) => {
-  // NEW
   console.log(req.file);
   // using try & catch for things that could potentially throw an error
   try {
@@ -132,7 +131,6 @@ app.get("/dish/:dishId", async (req, res) => {
   });
 });
 
-// NEW
 // dish details edit page
 app.get("/dish/:dishId/edit", async (req, res) => {
   const urlId = req.params.dishId;
@@ -151,7 +149,7 @@ app.get("/dish/:dishId/edit", async (req, res) => {
   });
 });
 
-// NEW
+// edit a dish
 app.post("/dish/:dishId/edit", upload.single("uploadImage"), async (req, res) => {
   const urlId = req.params.dishId;
   console.log("urlId", urlId);
@@ -180,8 +178,7 @@ app.post("/dish/:dishId/edit", upload.single("uploadImage"), async (req, res) =>
   }
 });
 
-// NEW
-// To delete a document
+// To delete a document/ dish
 app.delete("/dish/:dishId", async (req, res) => {
   const urlId = req.params.dishId;
   console.log("urlId", urlId);
