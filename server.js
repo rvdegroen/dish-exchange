@@ -4,6 +4,7 @@ const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 const bodyParser = require("body-parser");
 const multer = require("multer");
+const compression = require("compression");
 // INCLUDED IN NODEJS
 const path = require("path");
 
@@ -49,6 +50,7 @@ async function run() {
 run();
 
 // MIDDLEWARE
+app.use(compression({ level: 9 }));
 // express knows all my static files are in my static folder
 app.use(express.static("static"));
 // parse application/json
