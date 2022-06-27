@@ -20,13 +20,16 @@
     <form action="" method="post" enctype="multipart/form-data">
       <!--uploading an image using multer-->
       <fieldset>
+        <legend>Upload dish image</legend>
+        <p class="subtext">Optional: Upload image of your dish</p>
         <input type="file" name="uploadImage" accept="image/*" />
       </fieldset>
       <!--edit feature: to edit the dish / document in mongoDB-->
       <fieldset>
         <legend>Name of the dish</legend>
+        <p class="subtext">Optional: Autodetect the name of your dish</p>
         <input type="text" id="dishName" name="dishName" required value="<%=dish.name%>" />
-        <button id="autodetectFoodButton" class="hidden">Autodetect dish</button>
+        <button id="autodetectFoodButton" class="hidden">Autodetect Dish</button>
         <!-- this is NOT inline styling, determines the size of the screenshot-->
         <video id="video" width="320" height="240" class="hidden" autoplay></video>
         <canvas id="canvas" width="320" height="240" class="hidden"></canvas>
