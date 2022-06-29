@@ -168,7 +168,7 @@ app.post("/dish/:dishId/edit", upload.single("uploadImage"), async (req, res) =>
         quality: req.body.dishQuality,
         ingredients: req.body.ingredients.split(","),
         tags: Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags],
-        // it doesn't comes back as undefined if it doesn't exist
+        // it will not throw an error without a ?
         img: req?.file?.filename,
       },
     });
