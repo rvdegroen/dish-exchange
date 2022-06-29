@@ -35,23 +35,7 @@
       <a onclick="deleteDish('<%=dish._id%>')" class="deleteButton">Delete</a>
     </div>
 
-    <script>
-      async function deleteDish(dishId) {
-        // fetch sends HTTP request to run the method delete
-        const response = await fetch("/dish/" + dishId, {
-          method: "DELETE",
-        });
-        // if response is .ok, it will redirect to the route
-        if (response.ok) {
-          window.location.href = "/";
-        } else {
-          let error = document.getElementById("error");
-          // show err.message from server.js
-          const errorMessage = await response.text();
-          error.textContent = errorMessage;
-          console.log(errorMessage);
-        }
-      }
-    </script>
+    <!--source: https://stackoverflow.com/questions/52913334/js-access-variable-from-script-tag-->
+    <script data-api-key="<%= process.env.API_KEY%>" src="/script/script.js"></script>
   </body>
 </html>
