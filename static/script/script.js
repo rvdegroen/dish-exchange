@@ -79,14 +79,14 @@ if (navigator.mediaDevices) {
 
 async function deleteDish(dishId) {
   // fetch sends HTTP request to run the method delete
-  const response = await fetch("/dish/" + dishId, {
+  const response = await fetch(`/dish/${dishId}`, {
     method: "DELETE",
   });
   // if response is .ok, it will redirect to the route
   if (response.ok) {
     window.location.href = "/";
   } else {
-    let error = document.getElementById("error");
+    const error = document.getElementById("error");
     // show err.message from server.js
     const errorMessage = await response.text();
     error.textContent = errorMessage;
